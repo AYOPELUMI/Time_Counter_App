@@ -6,9 +6,8 @@ import {TimerCounterProject} from "./TimerCounterObject"
 
 
 export function TimeCounter() {
-   	
+	
 	const [timerProjects, settimerProjects] = useState([])
-	const [timeActive, setTimerActive] = useState(true)
 	const [newTimerObject, setNewTimerObject] = useState(false)
 	const [newTitle, setNewTitle] = useState("")
 	const [newProject, setNewProject] = useState("")
@@ -21,17 +20,14 @@ export function TimeCounter() {
 	const handleNewTimer = () =>{
 		setNewTimerObject(true)
 	}
-
 	const handleNewTitle = (e) =>{
 		let value = e.target.value
 		setNewTitle(value)
 	}
-
 	const handleNewProject = (e) => {
 		let value = e.target.value
 		setNewProject(value)
 	}
-
 	const handleNewTimerObject = (e) =>{
 		e.preventDefault();
 		let timerProjectsClone = Array.from(timerProjects)
@@ -61,18 +57,15 @@ export function TimeCounter() {
 		setNewProject("")
 		setNewTimerObject(false)
 	}
-
 	const handleCancelNewTimer = (e) => {
 			setNewTimerObject(false)
 			setNewTitle("")
 			setNewProject("")
 	}
-
 	for (var i = 0; i < timerProjects.length; i++) {
 		const project = timerProjects[i]
 		console.log({project})
-		let el
-			 el = (
+		let el = (
 				<TimerCardDisplay 
 					index={i}
 					key={project.index}
@@ -82,9 +75,8 @@ export function TimeCounter() {
 					addTimerProjects={addTimerProjects}
 
 				/>
-				)	
-				 
-			displayArray.push(el)
+		)	
+		displayArray.push(el)
 	}
 
 	return(

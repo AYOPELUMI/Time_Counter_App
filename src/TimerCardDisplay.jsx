@@ -10,13 +10,10 @@ export function TimerCardDisplay(props) {
 		timerProjects,
 		addTimerProjects
 	} = props
-	const [timerCounterIndex, setTimerCounterIindex] = useState(null)
 	const refContainer = useRef(null)
 	const [timer, setTimer] = useState(project.secondElapsed)
 	const [timerObject, setTimerObject] = useState(project)
 	const [timerActive, setTimerActive] = useState(project.timeActive)
-	const [timerObjectName, setTimerObjectName] = useState(project.project)
-	const [timerObjectTitle, setTimerObjectTitle] = useState(project.title)
 	const [cardEdit, setCardEdit] = useState(false)
 
  	const renderForm = () => {
@@ -31,8 +28,7 @@ export function TimerCardDisplay(props) {
 				updateCardEdit = {updateCardEdit}
 				timerIndex={TimerIndex}
 				updateTimerIndex={updateTimerIndex}
-			>
-			</TimerCounterForm>
+			/>
 		)
 	}
 
@@ -50,9 +46,9 @@ export function TimerCardDisplay(props) {
 		}
 		addTimerProjects(timerProjectsClone)
 	},[cardEdit])
+
 	const handleEditTimer =(e) => {
 		e.preventDefault()
-		console.log("wassup")
 		let timerObjectClone = timerObject
 
 			if (timerActive == true) {
@@ -72,6 +68,7 @@ export function TimerCardDisplay(props) {
 	function addTimerProject (args) {
 		setTimerObject(args)
 	}
+
 	function ConvertSecondElapsed (secondElapsed) {
 		let seconds = secondElapsed > 60 ? (secondElapsed%60) : secondElapsed
 		let minutes = secondElapsed > 60 ? secondElapsed / 60 : 0
@@ -81,21 +78,18 @@ export function TimerCardDisplay(props) {
 		return time
 	}
 
-
-		const handleToggleTimer = (e) => {
+	const handleToggleTimer = (e) => {
 			let activeTimerObject = timerObject
 
 			if (activeTimerObject.timeActive == false) {
 				refContainer.current = setInterval(() => {
 					let secondElapsed = activeTimerObject.secondElapsed
 					secondElapsed += 1 
-					// console.log(activeTimerObject.timeActive)
 					activeTimerObject.timeActive = true
 					activeTimerObject.secondElapsed = secondElapsed
 					setTimer(secondElapsed)
 					setTimerActive(true)
 					setTimerObject(activeTimerObject)
-					// console.log({activeTimerObject})
 				}, 1000)
 			}
 			else {
@@ -115,23 +109,36 @@ export function TimerCardDisplay(props) {
 		timerObjectsClone.splice(index,1)
 		addTimerProjects(timerObjectsClone)
 	}
+
 	return(
+		// eslint-disable-next-line react/no-unknown-property
 		<div  index={timerObject.index} >
 			{ cardEdit  ? renderForm()
 				:
-
 				<div key={timerObject.index} className="displayTimerContainer">
-
 					<div className="titleProjectContainer">
 						<h2>{timerObject.title}</h2>
 						<h3>{timerObject.project}</h3>
 					</div>
-					<div className="timerDisplay">{ConvertSecondElapsed(timer)}</div>
-					<div className="timerProjectBtnContainer">
-						<button type="button" onClick={handleEditTimer} index={timerObject.index}>Edit</button>
-						<button type="button"  onClick={removeTimer} index={timerObject.index}>Remove</button>
+					<div className="timerDisplay">
+						{ConvertSecondElapsed(timer)}
 					</div>
-					<button type="button" className={timerActive ? "timerContollerBtnActive" : "timerContollerBtnDefault"} index={timerObject.index}  onClick={handleToggleTimer}>{timerActive ? "Stop" : "Start"}</button>
+					<div className="timerProjectBtnContainer">
+						<button type="button" onClick={handleEditTimer} index={timerObject.index}>
+							Edit
+						</button>
+						<button type="button"  onClick={removeTimer} index = {timerObject.index}>
+							Remove
+						</button>
+					</div>
+					<button 
+						type="button" 
+						className={timerActive ? "timerContollerBtnActive" : "timerContollerBtnDefault"} 
+						index = {timerObject.index} 
+						onClick={handleToggleTimer}
+					>
+						{timerActive ? "Stop" : "Start"}
+					</button>
 				</div>
 			}
 		</div>

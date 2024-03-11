@@ -8,16 +8,14 @@ export function TimerCounterForm(props) {
 		timerProjects,
 		addTimerProjects,
 		addTimerProject,
-		cardEdit,
-		updateCardEdit,
-		timerIndex
+		updateCardEdit
 	} = props
 
 	const [newTitle, setNewTitle] = useState(timerProject.title)
 	const [newProject, setNewProject] = useState(timerProject.project)
 
 
-  	const handleNewTitle = (e) => {
+	const handleNewTitle = (e) => {
   		let timerProjectClone = timerProject
 		timerProjectClone.titleEdit = false
 		let value = e.target.value
@@ -73,7 +71,6 @@ export function TimerCounterForm(props) {
 		let timerProjectClone = timerProject
 
 		if (timerProjectClone.cardEdit) {
-			console.log("wassup")
 			timerProjectClone.cardEdit = false
 			setNewTitle("")
 			setNewProject("")
@@ -90,11 +87,17 @@ export function TimerCounterForm(props) {
 		<form className="newTimerForm">
 			<label htmlFor="" className="formInput">
 				<h3>Title</h3>
-				<input type="text" index={index} value={newTitle} onChange={handleNewTitle} required/>
+				<input 
+					type="text" 
+					index={index} 
+					value={newTitle} 
+					onChange={handleNewTitle} 
+					required
+				/>
 			</label>
 			<label htmlFor="" className="formInput">
 				<h3>Project</h3>
-				<input type="text" index={index} value={newProject} onChange={handleNewProject} required/>
+				<input type="text" index= {index} value={newProject} onChange={handleNewProject} required/>
 			</label>
 			<div className="formBtnContainer">
 				<button type="submit" onClick={handleNewTimerObject} index={index}>Save</button>
