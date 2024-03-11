@@ -36,7 +36,7 @@ export function TimerCounterForm(props) {
 		e.preventDefault();
 		let timerProjectClone = {...timerProject}
 		let timerProjectsClone = [...timerProjects]
-		console.log({timerProjectsClone})
+
 
 		let verifiedValue = true
 		for (var j = 0; j < timerProjectsClone.length; j++) { 
@@ -44,9 +44,7 @@ export function TimerCounterForm(props) {
 				verifiedValue = false;
 				break;
 			}
-			console.log("i am here")
 		}
-		console.log({verifiedValue})
 		if (verifiedValue == true) {
 			timerProjectClone.title = newTitle
 			timerProjectClone.project = newProject
@@ -60,8 +58,6 @@ export function TimerCounterForm(props) {
 			addTimerProjects(timerProjectsClone)
 			timerProjectClone.project = newProject	
 		}
-		console.log({newTitle})
-		console.log({newProject})
 		setNewTitle("")
 		setNewProject("")
 		updateCardEdit(false)

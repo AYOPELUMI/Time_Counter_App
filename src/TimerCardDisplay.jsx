@@ -59,11 +59,9 @@ export function TimerCardDisplay(props) {
 		  timerObjectClone.cardEdit = !timerObjectClone.cardEdit
 		  timerObjectClone.titleEdit = true
 		  timerObjectClone.projectEdit = true
-		  console.log({timerObjectClone})
 		  setCardEdit(!cardEdit)
 		  setTimerObject(timerObjectClone)
 	}
-	console.log({timerObject})
 
 	function addTimerProject (args) {
 		setTimerObject(args)

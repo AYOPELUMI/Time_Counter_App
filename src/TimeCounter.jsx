@@ -39,7 +39,6 @@ export function TimeCounter() {
 				break;
 			}
 		}
-		console.log({verifiedValue})
 		if (verifiedValue == true) {
 			let newValue = TimerCounterProject(newTitle, newProject,timerIndex)
 			timerProjectsClone.push(newValue)
@@ -64,7 +63,6 @@ export function TimeCounter() {
 	}
 	for (var i = 0; i < timerProjects.length; i++) {
 		const project = timerProjects[i]
-		console.log({project})
 		let el = (
 				<TimerCardDisplay 
 					index={i}
