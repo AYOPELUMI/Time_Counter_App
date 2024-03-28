@@ -36,7 +36,8 @@
 			button{
 				width: 100%;
 				height: 38px;
-				border-radius: 0;
+				border-radius: 12px;
+				outline: none;
 				border: 2px solid #000;
 				font-size: 15px;
 				font-weight: bold;
@@ -51,11 +52,7 @@
 			gap: 10px;
 			width: 100%;
 			border: 2px solid #bdb2b2;
-			-webkit-transform: all 0.5s ease;
-			   -moz-transform: all 0.5s ease;
-			    -ms-transform: all 0.5s ease;
-			     -o-transform: all 0.5s ease;
-			        transform: all 0.5s ease;
+			transform: all 0.5s ease;
 
 			.formInput{
 				display: flex;
@@ -75,8 +72,12 @@
 
 				input{
 					width: 100%;
-					padding: 10px;
+					padding: 12px 15px;
 					border: 2px solid #e5e3e3;
+					outline: none;
+					color: #000;
+					border-radius: 8px;
+					font-size: 15px;
 				}
 			}
 
@@ -87,15 +88,12 @@
 
 			button{
 				width: 100px;
-				padding: 6px 12px;
-				font-size: 13px;
-				border: 3px solid #4edd4e;
+				padding: 7px 12px;
+				font-size: 14px;
+				border: 2px solid #4edd4e;
 				font-weight: 600;
-				-webkit-transition: all .5s ease;
-				   -moz-transition: all .5s ease;
-				    -ms-transition: all .5s ease;
-				     -o-transition: all .5s ease;
-				        transition: all .5s ease;
+				border-radius: 8px;
+				transition: all .5s ease;
 				
 				&:hover{
 					box-shadow: 0px 0px 2px 5px #4edd4e36;
@@ -103,7 +101,7 @@
 				}
 			}
 			.cancelBtn{
-				border: 3px solid #a17553;
+				border: 2px solid #a17553;
 
 
 				&:hover{
@@ -156,26 +154,32 @@
 
 					button{
 						width: 90px;
-						font-size: 13px;
-						padding: 5px 10px;
+						font-size: 14px;
+						padding: 7px 10px;
 						border: 2px solid #0a08d5;
 						border-radius: 0;
+						border-radius: 8px;
 						font-weight: bold;
+						outline:none;
 					}
 
 				}
 				.timerContollerBtnDefault{
 					width: 100%;
-					padding: 10px;
-					border: 3px solid #4edd4e;
+					padding: 8px 12px;
+					border: 2px solid #4edd4e;
 					font-weight: bold;
+					font-size: 16px;
+					border-radius: 10px;
 				}
 
 				.timerContollerBtnActive{
 					width: 100%;
-					padding: 10px;
-					border: 3px solid #f44336;
+					padding: 8px 12px;
+					border: 2px solid #f44336;
 					font-weight: bold;
+					font-size: 16px;
+					border-radius: 10px;
 				}
 			}
 		}

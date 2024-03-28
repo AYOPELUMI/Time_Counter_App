@@ -63,6 +63,7 @@ export function TimeCounter() {
 	}
 	for (var i = 0; i < timerProjects.length; i++) {
 		const project = timerProjects[i]
+
 		let el = (
 				<TimerCardDisplay 
 					index={i}
